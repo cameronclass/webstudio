@@ -1,0 +1,21 @@
+extends layout/main
+
+block variables
+	- let title = 'Название - Страница'
+
+
+
+block content
+	include pages/sections-page/section
+
+
+
+
+
+//- block libs-css
+	// библиотека.css
+	link(rel="stylesheet" href="libs/library/library.css")
+
+//- block libs-js
+	// библиотека.js
+	script(src="libs/library/library.js")
