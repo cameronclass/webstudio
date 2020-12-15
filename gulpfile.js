@@ -1,143 +1,277 @@
-var syntax = "sass";
+"use strict";
 
-var gulp = require("gulp"),
-  sass = require("gulp-sass"),
-  browserSync = require("browser-sync"),
-  concat = require("gulp-concat"),
-  uglify = require("gulp-uglify"),
-  cleancss = require("gulp-clean-css"),
-  rename = require("gulp-rename"),
-  imagemin = require("gulp-imagemin"),
-  cache = require("gulp-cache"),
-  del = require("del"),
-  autoprefixer = require("gulp-autoprefixer"),
-  pug = require("gulp-pug"),
-  notify = require("gulp-notify");
+const { src, dest } = require("gulp");
+const gulp = require("gulp");
+const autoprefixer = require("gulp-autoprefixer");
+const cssbeautify = require("gulp-cssbeautify");
+const removeComments = require("gulp-strip-css-comments");
+const sass = require("gulp-sass");
+const cssnano = require("gulp-cssnano");
+const uglify = require("gulp-uglify");
+const plumber = require("gulp-plumber");
+const panini = require("panini");
+const imagemin = require("gulp-imagemin");
+const del = require("del");
+const notify = require("gulp-notify");
+const fileinclude = require("gulp-file-include");
+/* if you want to use webpack stream - uncomment all comments and add webpack and webpack stream from npm*/
+//const webpack = require("webpack");
+//const webpackStream = require("webpack-stream");
+const browserSync = require("browser-sync").create();
+const prettyHtml = require("gulp-pretty-html");
+const ttf2woff = require("gulp-ttf2woff");
+const ttf2woff2 = require("gulp-ttf2woff2");
 
-gulp.task("browser-sync", function () {
-  browserSync({
+/* Paths */
+const srcPath = "src/";
+const distPath = "dist/";
+
+const path = {
+  build: {
+    html: distPath,
+    js: distPath + "/assets/js/",
+    css: distPath + "/assets/css/",
+    images: distPath + "/assets/images/",
+    fonts: distPath + "/assets/fonts/",
+  },
+  src: {
+    html: srcPath + "*.html",
+    js: srcPath + "/assets/js/*.js",
+    css: srcPath + "/assets/scss/*.scss",
+    images:
+      srcPath +
+      "/assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+    fonts: srcPath + "/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+  },
+  watch: {
+    html: srcPath + "**/*.html",
+    js: srcPath + "assets/js/**/*.js",
+    css: srcPath + "assets/scss/**/*.scss",
+    images:
+      srcPath +
+      "/assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+    fonts: srcPath + "/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+  },
+  clean: "./" + distPath,
+};
+
+/* Tasks */
+
+function serve() {
+  browserSync.init({
     server: {
-      baseDir: "app",
+      baseDir: "./" + distPath,
     },
     notify: false,
   });
-  // browserSync({
-  // 	proxy: "domen/index.php",
-  // 	notify: false
-  // });
-});
+}
 
-gulp.task("styles", function () {
-  return (
-    gulp
-      .src("app/sass/*.scss")
-      .pipe(sass({ outputStyle: "compressed" }).on("error", notify.onError()))
-      .pipe(autoprefixer(["last 5 versions"]))
-      // .pipe(rename({ suffix: '.min', prefix : '' }))
-      // .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
-      .pipe(gulp.dest("app/css"))
-      .pipe(browserSync.stream())
-  );
-});
+function html(cb) {
+  panini.refresh();
+  return src(path.src.html, { base: srcPath })
+    .pipe(plumber())
+    .pipe(
+      panini({
+        root: srcPath,
+        layouts: srcPath + "layouts/",
+        partials: srcPath + "partials/",
+        helpers: srcPath + "helpers/",
+        data: srcPath + "data/",
+      })
+    )
+    .pipe(
+      prettyHtml({
+        indent_size: 4,
+        indent_char: " ",
+        unformatted: ["code", "pre", "em", "strong", "span", "i", "b", "br"],
+      })
+    )
+    .pipe(dest(path.build.html))
+    .pipe(browserSync.stream());
 
-gulp.task("scripts", function () {
+  cb();
+}
+
+function css(cb) {
+  return src(path.src.css, { base: srcPath + "assets/scss/" })
+    .pipe(
+      plumber({
+        errorHandler: function (err) {
+          notify.onError({
+            title: "SCSS Error",
+            message: "Error: <%= error.message %>",
+          })(err);
+          this.emit("end");
+        },
+      })
+    )
+    .pipe(
+      sass({
+        includePaths: "./node_modules/",
+      })
+    )
+    .pipe(
+      autoprefixer({
+        cascade: true,
+      })
+    )
+    .pipe(cssbeautify())
+    .pipe(dest(path.build.css))
+    .pipe(
+      cssnano({
+        zindex: false,
+        discardComments: {
+          removeAll: true,
+        },
+      })
+    )
+    .pipe(removeComments())
+    .pipe(dest(path.build.css))
+    .pipe(browserSync.reload({ stream: true }));
+
+  cb();
+}
+
+function cssWatch(cb) {
+  return src(path.src.css, { base: srcPath + "assets/scss/" })
+    .pipe(
+      plumber({
+        errorHandler: function (err) {
+          notify.onError({
+            title: "SCSS Error",
+            message: "Error: <%= error.message %>",
+          })(err);
+          this.emit("end");
+        },
+      })
+    )
+    .pipe(
+      sass({
+        includePaths: "./node_modules/",
+      })
+    )
+    .pipe(dest(path.build.css))
+    .pipe(browserSync.reload({ stream: true }));
+
+  cb();
+}
+
+function js(cb) {
   return (
-    gulp
-      .src([
-        //'app/include/slick-carousel/slick/slick.min.js',
-        "app/include/common.js",
-        // 'app/include/about-page.js',
-      ])
-      .pipe(concat("scripts.js"))
-      // .pipe(uglify())
-      .pipe(gulp.dest("app/js"))
+    src(path.src.js, { base: srcPath + "assets/js/" })
+      .pipe(
+        plumber({
+          errorHandler: function (err) {
+            notify.onError({
+              title: "JS Error",
+              message: "Error: <%= error.message %>",
+            })(err);
+            this.emit("end");
+          },
+        })
+      )
+      .pipe(fileinclude())
+      .pipe(uglify())
+      /* .pipe(
+      webpackStream({
+        mode: "production",
+        output: {
+          filename: "app.js",
+        },
+        module: {},
+      })
+    ) */
+      .pipe(dest(path.build.js))
       .pipe(browserSync.reload({ stream: true }))
   );
-});
 
-// Сборка проекта
+  cb();
+}
 
-gulp.task("clearcache", function () {
-  return cache.clearAll();
-});
-gulp.task("imagemin", function () {
+function jsWatch(cb) {
   return (
-    gulp
-      .src("app/img/**/*")
-      // .pipe(cache(imagemin()))
-      .pipe(gulp.dest("dist/img"))
+    src(path.src.js, { base: srcPath + "assets/js/" })
+      .pipe(
+        plumber({
+          errorHandler: function (err) {
+            notify.onError({
+              title: "JS Error",
+              message: "Error: <%= error.message %>",
+            })(err);
+            this.emit("end");
+          },
+        })
+      )
+      .pipe(fileinclude())
+      .pipe(uglify())
+      // IF needed webpack stream
+      /* .pipe(
+        webpackStream({
+          mode: "development",
+          output: {
+            filename: "app.js",
+          },
+        })
+      ) */
+      .pipe(dest(path.build.js))
+      .pipe(browserSync.reload({ stream: true }))
   );
-});
 
-gulp.task("removePackageLock", function () {
-  return del(["package-lock.json"], { force: true });
-});
-gulp.task("removedist", function () {
-  return del(["dist"], { force: true });
-});
+  cb();
+}
 
-gulp.task("buildFiles", function () {
-  return gulp.src(["app/*.html"]).pipe(gulp.dest("dist"));
-});
-gulp.task("buildCss", function () {
-  return gulp.src(["app/css/styles.css"]).pipe(gulp.dest("dist/css"));
-});
-gulp.task("buildJs", function () {
-  return gulp.src(["app/js/scripts.js"]).pipe(gulp.dest("dist/js"));
-});
-gulp.task("buildFonts", function () {
-  return gulp.src(["app/fonts/**/*"]).pipe(gulp.dest("dist/fonts"));
-});
-gulp.task("buildLibs", function () {
-  return gulp.src(["app/libs/**/*"]).pipe(gulp.dest("dist/libs"));
-});
-
-gulp.task(
-  "dist",
-  gulp.series(
-    "removedist",
-    "imagemin",
-    "styles",
-    "scripts",
-    "buildFiles",
-    "buildCss",
-    "buildJs",
-    "buildFonts",
-    "buildLibs",
-    "removePackageLock"
-  )
-);
-
-// HTML
-// gulp.task('code', function() {
-// 	return gulp.src('app/*.html')
-// 	.pipe(browserSync.reload({ stream: true }));
-// });
-
-// PUG
-gulp.task("pugCompile", function () {
-  return gulp
-    .src("app/pug/*.pug")
-    .pipe(pug({ pretty: true }))
-    .pipe(gulp.dest("app"))
+function images(cb) {
+  return src(path.src.images)
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({ interlaced: true }),
+        imagemin.mozjpeg({ quality: 95, progressive: true }),
+        imagemin.optipng({ optimizationLevel: 5 }),
+        imagemin.svgo({
+          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+        }),
+      ])
+    )
+    .pipe(dest(path.build.images))
     .pipe(browserSync.reload({ stream: true }));
-});
-// gulp.task('pugClean', function () {
-// 	return del('app/pug-modules', {force:true});
-// });
-// gulp.task('code', gulp.series('pugCompile', 'pugClean'));
 
-gulp.task("watch", function () {
-  gulp.watch("app/sass/**/*.scss", gulp.parallel("styles"));
-  gulp.watch(
-    ["libs/**/*.js", "app/include/common.js"],
-    gulp.parallel("scripts")
-  );
-  // gulp.watch('app/*.html', gulp.parallel('code'));
-  gulp.watch(["app/pug/**/*.pug"], gulp.parallel("pugCompile"));
-});
+  cb();
+}
 
-gulp.task(
-  "default",
-  gulp.parallel("watch", "styles", "scripts", "browser-sync")
-);
+function fonts(cb) {
+  src(path.src.fonts).pipe(ttf2woff()).pipe(dest(path.build.fonts));
+  return src(path.src.fonts)
+    .pipe(ttf2woff2())
+    .pipe(dest(path.build.fonts))
+    .pipe(browserSync.reload({ stream: true }));
+
+  cb();
+}
+
+function clean(cb) {
+  return del(path.clean);
+
+  cb();
+}
+
+function watchFiles() {
+  gulp.watch([path.watch.html], html);
+  gulp.watch([path.watch.css], cssWatch);
+  gulp.watch([path.watch.js], jsWatch);
+  gulp.watch([path.watch.images], images);
+  gulp.watch([path.watch.fonts], fonts);
+}
+
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
+const watch = gulp.parallel(build, watchFiles, serve);
+
+/* Exports Tasks */
+exports.html = html;
+exports.css = css;
+exports.js = js;
+exports.images = images;
+exports.fonts = fonts;
+exports.clean = clean;
+exports.build = build;
+exports.watch = watch;
+exports.default = watch;
