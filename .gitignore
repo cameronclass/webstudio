@@ -99,7 +99,6 @@ $RECYCLE.BIN/
 *.lnk
 
 ### Theme ###
-/dist/
 /.git/
 /package-lock.json
 /**/Thumbs.db
