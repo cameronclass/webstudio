@@ -1,10 +1,19 @@
-# WM Стартовый шаблон
+# Gulp + Pug - Стартовый шаблон
 
-Шаблон доступен к скачиванию по ссылке https://petrpetukhov@bitbucket.org/petrpetukhov/start.git (вкладка Downloads слева в меню)
+Устанавливаем node зависимости
 
-Распаковываем архив, полученную папку переименовываем названием проекта
+```javascript
+npm install
+```
+Запускаем проект
+```javascript
+gulp
+```
 
-Устанавливаем node модули (npm i)
+Собираем проект
+```javascript
+gulp dist
+```
 
 ## Шрифты
 
