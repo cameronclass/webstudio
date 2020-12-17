@@ -211,7 +211,7 @@ function images(cb) {
         imagemin.mozjpeg({ quality: 95, progressive: true }),
         imagemin.optipng({ optimizationLevel: 5 }),
         imagemin.svgo({
-          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+          plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
         }),
       ])
     )
