@@ -79,3 +79,14 @@
         padding-top: 30px;
     }
 }
+
+.form-section{
+    &__block{
+        &--btn{
+            p{
+                font-size: 13px;
+            }
+            margin-top: 30px;
+        }
+    }
+}

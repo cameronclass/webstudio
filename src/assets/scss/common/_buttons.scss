@@ -16,4 +16,18 @@
             background-color: darken($blue, 15);
         }
     }
+
+    &-file{
+        font-size: 15px;
+        border-radius: 2px;
+        padding: 6px 18px;
+        font-weight: 500;
+        background-color: #42167b;
+    }
+
+    &-small{
+        font-size: 16px;
+        font-weight: 500;
+        padding: 12px 50px;
+    }
 }

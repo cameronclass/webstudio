@@ -13,7 +13,10 @@ ul {
 }
 
 a {
+    color: $blue;
+    transition: 300ms ease;
     &:hover {
+        color: darken($color: $blue, $amount: 20);
         text-decoration: none;
     }
 }
@@ -49,6 +52,16 @@ h2 {
 }
 h3 {
     font-size: 30px;
+}
+
+input, textarea {
+    width: 100%;
+    border: none;
+    padding: 5px 15px;
+    &:focus {
+        outline: none;
+        border: none;
+    }
 }
 
 .section {
@@ -90,11 +103,16 @@ h3 {
             }
         }
 
-        .icon-block__text{
+        .icon-block__text {
             font-size: 20px;
             text-align: center;
             width: 100%;
             padding: 0 20px;
         }
     }
+}
+
+.map{
+    width: 100%;
+    height: 100%;
 }

@@ -1,0 +1,37 @@
+.footer {
+    background-color: $blue;
+    padding: 50px 0 80px;
+
+    * {
+        color: white;
+    }
+
+    a {
+        &:hover {
+            color: #efff00;
+        }
+    }
+
+    &__title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__logo {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    &__social {
+        margin-bottom: 20px;
+    }
+
+    &__links {
+    }
+
+    &__policy {
+        margin-bottom: 10px;
+    }
+}

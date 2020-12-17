@@ -1,0 +1,58 @@
+.input-block {
+    display: flex;
+    position: relative;
+    label {
+        position: absolute;
+        top: 25px;
+        transform: translateY(-50%);
+        left: 5px;
+        color: $dark-blue;
+        cursor: text;
+        font-size: 16px;
+        transition: 300ms ease;
+
+        &.is-active {
+            top: -5px;
+            left: 0;
+            font-size: 11px;
+        }
+
+        @include mobile {
+            font-size: 14px;
+        }
+    }
+    .input {
+        width: 100%;
+        background-color: transparent;
+        padding: 10px 40px 10px 0px;
+        border-bottom: 1px solid $grey;
+        border-radius: 0;
+        color: $dark-blue;
+        font-size: 18px;
+        font-weight: bold;
+
+        &:focus {
+            border-bottom: 1px solid $dark-blue;
+        }
+    }
+    textarea{
+        height: 100px;
+    }
+}
+
+.upload-file__input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    width: 0.4px;
+    height: 0.4px;
+}
+
+.upload-file__label {
+    cursor: pointer;
+}
+
+.upload-file__label .upload-file__text {
+    transition: 0.25s ease;
+}

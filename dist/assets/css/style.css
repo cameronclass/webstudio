@@ -7,16 +7,16 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background: #fff;
-  z-index: 100500; }
+  background: #000000;
+  z-index: 100500;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .cssload-loader {
-  position: relative;
-  left: calc(50% - 31px);
-  width: 100px;
-  height: 100px;
-  margin: 130px 0;
-  perspective: 780px; }
+  width: 180px;
+  height: 180px;
+  perspective: 1000px; }
 
 .cssload-inner {
   position: absolute;
@@ -40,7 +40,7 @@
     -ms-animation: cssload-rotate-one 1.15s linear infinite;
     -webkit-animation: cssload-rotate-one 1.15s linear infinite;
     -moz-animation: cssload-rotate-one 1.15s linear infinite;
-    border-bottom: 3px solid #5c5edc; }
+    border-bottom: 8px solid #52057b; }
   .cssload-inner.cssload-two {
     right: 0%;
     top: 0%;
@@ -49,7 +49,7 @@
     -ms-animation: cssload-rotate-two 1.15s linear infinite;
     -webkit-animation: cssload-rotate-two 1.15s linear infinite;
     -moz-animation: cssload-rotate-two 1.15s linear infinite;
-    border-right: 3px solid rgba(76, 70, 101, 0.99); }
+    border-right: 8px solid #892cdc; }
   .cssload-inner.cssload-three {
     right: 0%;
     bottom: 0%;
@@ -58,7 +58,7 @@
     -ms-animation: cssload-rotate-three 1.15s linear infinite;
     -webkit-animation: cssload-rotate-three 1.15s linear infinite;
     -moz-animation: cssload-rotate-three 1.15s linear infinite;
-    border-top: 3px solid #e9908a; }
+    border-top: 8px solid #bc6ff1; }
 
 @keyframes cssload-rotate-one {
   0% {
@@ -161,9 +161,66 @@
   border: none; }
   .btn-blue {
     color: white;
-    background-color: #4b21ff; }
+    background-color: #892cdc; }
     .btn-blue:hover {
-      background-color: #2800d4; }
+      background-color: #621ba1; }
+  .btn-file {
+    font-size: 15px;
+    border-radius: 2px;
+    padding: 6px 18px;
+    font-weight: 500;
+    background-color: #42167b; }
+  .btn-small {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 50px; }
+
+.input-block {
+  display: flex;
+  position: relative; }
+  .input-block label {
+    position: absolute;
+    top: 25px;
+    transform: translateY(-50%);
+    left: 5px;
+    color: #222831;
+    cursor: text;
+    font-size: 16px;
+    transition: 300ms ease; }
+    .input-block label.is-active {
+      top: -5px;
+      left: 0;
+      font-size: 11px; }
+    @media screen and (max-width: 576px) {
+      .input-block label {
+        font-size: 14px; } }
+  .input-block .input {
+    width: 100%;
+    background-color: transparent;
+    padding: 10px 40px 10px 0px;
+    border-bottom: 1px solid #a6a9b6;
+    border-radius: 0;
+    color: #222831;
+    font-size: 18px;
+    font-weight: bold; }
+    .input-block .input:focus {
+      border-bottom: 1px solid #222831; }
+  .input-block textarea {
+    height: 100px; }
+
+.upload-file__input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  width: 0.4px;
+  height: 0.4px; }
+
+.upload-file__label {
+  cursor: pointer; }
+
+.upload-file__label .upload-file__text {
+  transition: 0.25s ease; }
 
 html,
 body {
@@ -177,8 +234,12 @@ ul {
   margin: 0;
   padding: 0; }
 
-a:hover {
-  text-decoration: none; }
+a {
+  color: #892cdc;
+  transition: 300ms ease; }
+  a:hover {
+    color: #54178b;
+    text-decoration: none; }
 
 button {
   font-family: "Rubik", sans-serif; }
@@ -207,6 +268,14 @@ h2 {
 
 h3 {
   font-size: 30px; }
+
+input, textarea {
+  width: 100%;
+  border: none;
+  padding: 5px 15px; }
+  input:focus, textarea:focus {
+    outline: none;
+    border: none; }
 
 .section {
   padding-top: 100px;
@@ -237,6 +306,10 @@ h3 {
   text-align: center;
   width: 100%;
   padding: 0 20px; }
+
+.map {
+  width: 100%;
+  height: 100%; }
 
 .position-relative {
   position: relative; }
@@ -272,7 +345,7 @@ h3 {
   z-index: 10;
   top: 0; }
   .header__active {
-    background-color: #4b21ff; }
+    background-color: #892cdc; }
   .header__logo a {
     font-size: 20px;
     color: white;
@@ -324,10 +397,30 @@ h3 {
         color: black;
         padding: 0; }
         .header__menu_dropdown li a:hover {
-          color: #4b21ff; }
+          color: #892cdc; }
   .header__contact a {
     font-size: 20px;
     color: white; }
+
+.footer {
+  background-color: #892cdc;
+  padding: 50px 0 80px; }
+  .footer * {
+    color: white; }
+  .footer a:hover {
+    color: #efff00; }
+  .footer__title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .footer__logo {
+    font-size: 26px;
+    margin-bottom: 20px; }
+  .footer__social {
+    margin-bottom: 20px; }
+  .footer__policy {
+    margin-bottom: 10px; }
 
 /* Pages */
 .first-section {
@@ -387,9 +480,14 @@ h3 {
     display: inline-block;
     width: 50px;
     height: 7px;
-    background-color: #4b21ff;
+    background-color: #892cdc;
     position: absolute;
     top: 0; }
+
+.form-section__block--btn {
+  margin-top: 30px; }
+  .form-section__block--btn p {
+    font-size: 13px; }
 
 /* Sliders */
 /* Aos */
