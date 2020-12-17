@@ -1,0 +1,19 @@
+.btn{
+    padding: 18px 50px;
+    border-radius: 30px;
+    background-color: #fff;
+    text-transform: uppercase;
+    transition: 300ms;
+    font-weight: 600;
+    color: black;
+    border: none;
+
+    &-blue{
+        color: white;
+        background-color: $blue;
+
+        &:hover{
+            background-color: darken($blue, 15);
+        }
+    }
+}

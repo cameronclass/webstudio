@@ -1,1 +1,1 @@
-$(document).ready(function(){let e=$("#page-preloader");e.fadeOut(1e3),$("body").addClass("hello")});
+$(document).ready(function(){$(window).scroll(function(){10<=$(window).scrollTop()?$("header").addClass("header__active"):$("header").removeClass("header__active")})}),AOS.init({once:!0,anchorPlacement:"bottom-bottom",duration:800});

@@ -29,18 +29,18 @@ const distPath = "dist/";
 const path = {
   build: {
     html: distPath,
-    js: distPath + "/assets/js/",
-    css: distPath + "/assets/css/",
-    images: distPath + "/assets/images/",
-    fonts: distPath + "/assets/fonts/",
+    js: distPath + "assets/js/",
+    css: distPath + "assets/css/",
+    images: distPath + "assets/images/",
+    fonts: distPath + "assets/fonts/",
   },
   src: {
     html: srcPath + "*.html",
-    js: srcPath + "/assets/js/*.js",
-    css: srcPath + "/assets/scss/*.scss",
+    js: srcPath + "assets/js/*.js",
+    css: srcPath + "assets/scss/*.scss",
     images:
       srcPath +
-      "/assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+      "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
     fonts: srcPath + "/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
   },
   watch: {
@@ -49,8 +49,8 @@ const path = {
     css: srcPath + "assets/scss/**/*.scss",
     images:
       srcPath +
-      "/assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-    fonts: srcPath + "/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+      "assets/images/**/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+    fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
   },
   clean: "./" + distPath,
 };
@@ -190,7 +190,7 @@ function js(cb) {
 
 function jsWatch(cb) {
   return (
-    src(path.src.js, { base: srcPath + "assets/js/" })
+    src(path.watch.js, { base: srcPath + "assets/js/" })
       .pipe(
         plumber({
           errorHandler: function (err) {
@@ -203,7 +203,7 @@ function jsWatch(cb) {
         })
       )
       .pipe(fileinclude())
-      .pipe(uglify())
+      /* .pipe(uglify()) */
       // IF needed webpack stream
       /* .pipe(
         webpackStream({

@@ -1,10 +1,97 @@
 .header {
+    background-color: transparent;
+    transition: 300ms ease;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    &__active {
+        background-color: $blue;
+    }
     &__logo {
+        a {
+            font-size: 20px;
+            color: white;
+            text-transform: uppercase;
+        }
     }
 
     &__menu {
+        &_list {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            &--item {
+                margin: 0 15px;
+                position: relative;
+
+                a {
+                    color: white;
+                    padding-top: 25px;
+                    padding-bottom: 25px;
+                }
+                &:hover {
+                    .header__menu_dropdown {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+
+        &_dropdown {
+            position: absolute;
+            background-color: #fff;
+            width: 280px;
+            padding: 20px;
+            box-sizing: border-box;
+
+            transition: 250ms ease;
+            opacity: 0;
+            visibility: hidden;
+
+            left: -20px;
+            top: 52px;
+            z-index: 2;
+
+            box-shadow: $box-shadow;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: -7px;
+                left: 20px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 13px 11px;
+                border-color: transparent transparent #fff;
+            }
+
+            li {
+                margin-top: 12px;
+                margin-bottom: 4px;
+                a {
+                    color: black;
+                    padding: 0;
+
+                    &:hover{
+                        color: $blue;
+                    }
+                }
+            }
+        }
     }
 
     &__contact {
+        a {
+            font-size: 20px;
+            color: white;
+        }
     }
 }
