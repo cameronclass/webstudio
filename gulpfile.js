@@ -7,7 +7,7 @@ const cssbeautify = require("gulp-cssbeautify");
 const removeComments = require("gulp-strip-css-comments");
 const sass = require("gulp-sass");
 const cssnano = require("gulp-cssnano");
-const uglify = require("gulp-uglify");
+const uglify = require("gulp-uglify-es").default;
 const plumber = require("gulp-plumber");
 const panini = require("panini");
 const imagemin = require("gulp-imagemin");
@@ -36,7 +36,7 @@ const path = {
   },
   src: {
     html: srcPath + "*.html",
-    js: srcPath + "assets/js/*.js",
+    js: srcPath + "assets/js/app.js",
     css: srcPath + "assets/scss/*.scss",
     images:
       srcPath +
@@ -172,15 +172,7 @@ function js(cb) {
       )
       .pipe(fileinclude())
       .pipe(uglify())
-      /* .pipe(
-      webpackStream({
-        mode: "production",
-        output: {
-          filename: "app.js",
-        },
-        module: {},
-      })
-    ) */
+      
       .pipe(dest(path.build.js))
       .pipe(browserSync.reload({ stream: true }))
   );
@@ -203,16 +195,7 @@ function jsWatch(cb) {
         })
       )
       .pipe(fileinclude())
-      /* .pipe(uglify()) */
-      // IF needed webpack stream
-      /* .pipe(
-        webpackStream({
-          mode: "development",
-          output: {
-            filename: "app.js",
-          },
-        })
-      ) */
+      .pipe(uglify())
       .pipe(dest(path.build.js))
       .pipe(browserSync.reload({ stream: true }))
   );
