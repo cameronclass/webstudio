@@ -40,7 +40,8 @@ const path = {
     css: srcPath + "assets/scss/*.scss",
     images:
       srcPath +
-      "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+      "assets/images/**/*.{jpg,png,gif,ico,webp,webmanifest,xml,json}",
+    svg: srcPath + "assets/images/**/**/*.svg",
     fonts: srcPath + "/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
   },
   watch: {
@@ -49,7 +50,8 @@ const path = {
     css: srcPath + "assets/scss/**/*.scss",
     images:
       srcPath +
-      "assets/images/**/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+      "assets/images/**/**/*.{jpg,png,gif,ico,webp,webmanifest,xml,json}",
+    svg: srcPath + "assets/images/**/**/*.svg",
     fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
   },
   clean: "./" + distPath,
@@ -221,6 +223,14 @@ function images(cb) {
   cb();
 }
 
+function svg(cb) {
+  return src(path.src.svg)
+    .pipe(dest(path.build.images))
+    .pipe(browserSync.reload({ stream: true }));
+
+  cb();
+}
+
 function fonts(cb) {
   src(path.src.fonts).pipe(ttf2woff()).pipe(dest(path.build.fonts));
   return src(path.src.fonts)
@@ -243,9 +253,10 @@ function watchFiles() {
   gulp.watch([path.watch.js], jsWatch);
   gulp.watch([path.watch.images], images);
   gulp.watch([path.watch.fonts], fonts);
+  gulp.watch([path.watch.svg], svg);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts, svg));
 const watch = gulp.parallel(build, watchFiles, serve);
 
 /* Exports Tasks */
@@ -253,6 +264,7 @@ exports.html = html;
 exports.css = css;
 exports.js = js;
 exports.images = images;
+exports.svg = svg;
 exports.fonts = fonts;
 exports.clean = clean;
 exports.build = build;
