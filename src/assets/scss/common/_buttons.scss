@@ -8,6 +8,10 @@
     color: black;
     border: none;
 
+    @include mobile{
+        padding: 14px 40px;
+    }
+
     &-blue{
         color: white;
         background-color: $blue;
@@ -18,11 +22,11 @@
     }
 
     &-file{
-        font-size: 15px;
+        font-size: 14px;
         border-radius: 2px;
-        padding: 6px 18px;
+        padding: 6px 18px 6px 10px;
         font-weight: 500;
-        background-color: #42167b;
+        background-color: #525252;
     }
 
     &-small{

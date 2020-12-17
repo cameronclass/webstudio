@@ -51,6 +51,17 @@
 
 .upload-file__label {
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+
+    .svg-white{
+        width: 18px;
+        height: 18px;
+        fill: white;
+        margin-right: 10px;
+    }
 }
 
 .upload-file__label .upload-file__text {

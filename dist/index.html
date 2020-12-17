@@ -48,19 +48,19 @@
     </div>
     <header class="header container-fluid">
         <div class="row" data-aos="zoom-out-down">
-            <div class="col-lg-3 d-flex align-items-center">
+            <div class="col-xl-2 col-lg-8 col-8 d-flex align-items-center">
                 <div class="header__logo">
                     <a href="#">
                         Логотип
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="col-lg-8 header__menu_block d-xl-flex justify-content-center align-items-center">
                 <div class="header__menu">
                     <nav>
                         <ul class="header__menu_list">
                             <li class="header__menu_list--item">
-                                <a href="#">О нас</a>
+                                <button>О нас</button>
                                 <ul class="header__menu_dropdown">
                                     <li>
                                         <a href="#">Ссылка</a>
@@ -86,7 +86,7 @@
                                 </ul>
                             </li>
                             <li class="header__menu_list--item">
-                                <a href="#">Услуги</a>
+                                <button>Услуги</button>
                                 <ul class="header__menu_dropdown">
                                     <li>
                                         <a href="#">Ссылка</a>
@@ -112,7 +112,7 @@
                                 </ul>
                             </li>
                             <li class="header__menu_list--item">
-                                <a href="#">Аутсорсинг разработки</a>
+                                <button>Аутсорсинг разработки</button>
                                 <ul class="header__menu_dropdown">
                                     <li>
                                         <a href="#">Ссылка</a>
@@ -141,7 +141,7 @@
                                 <a href="#">Портфолио</a>
                             </li>
                             <li class="header__menu_list--item">
-                                <a href="#">Карьера</a>
+                                <button>Карьера</button>
                                 <ul class="header__menu_dropdown">
                                     <li>
                                         <a href="#">Ссылка</a>
@@ -176,12 +176,25 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-lg-3 d-flex align-items-center justify-content-end">
+            <div class="col-lg-2 d-none d-xl-flex align-items-center justify-content-end">
                 <div class="header__contact">
                     <a href="#">+7 123 123 12 12</a>
                 </div>
             </div>
+            <div class="col-lg-4 col-4 d-flex d-xl-none align-items-center justify-content-end">
+                <div class="header__burger" data-aos="fade-up">
+                    <button class="js-menu-open d-flex">
+                        <div class="hamburger_menu">
+                            <div class="hamburger_menu_line hamburger_menu_line_top"></div>
+                            <div class="hamburger_menu_line hamburger_menu_line_bottom"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
         </div>
+        <!-- <nav class="header-mobile">
+    
+        </nav> -->
     </header>
 
 
@@ -190,26 +203,26 @@
         <!-- Section First -->
         <section class="container-fluid px-0 first-section">
             <img class="first-section__img-bg" src="assets/images/img/home/bg-main.jpg" alt="">
-            <div class="container d-flex align-items-center h-100">
+            <div class="container px-lg-5 px-3 d-flex align-items-center h-100">
                 <div class="row">
-                    <div class="col-lg-6" data-aos="fade-down">
+                    <div class="col-lg-6 col-md-7" data-aos="fade-down">
                         <h1 class="first-section__title">Веб и мобильные разработчики, которых вы искали</h1>
                         <p class="first-section__subtitle">Надежные, быстрые, как свои</p>
                         <button class="btn btn-blue first-section__btn">Узнать ставки</button>
                     </div>
-                    <div class="col-lg-5 offset-lg-1">
+                    <div class="col-lg-5 offset-lg-1 col-md-5">
                         <ul class="first-section__list">
                             <li class="first-section__list--item" data-aos="fade-down" data-aos-delay="100">
-                                <div class="first-section__list_img"><img src="assets/images/icons-img/home/first-section-1.svg" alt="Иконка"></div>
+                                <div class="first-section__list_img"><img src="assets/images/icons-img/home/user-experience.svg" alt="Иконка"></div>
                                 <div class="first-section__list_text">15 лет кодим</div>
                             </li>
                             <li class="first-section__list--item" data-aos="fade-down" data-aos-delay="200">
-                                <div class="first-section__list_img"><img src="assets/images/icons-img/home/first-section-2.svg" alt="Иконка"></div>
+                                <div class="first-section__list_img"><img src="assets/images/icons-img/home/employee.svg" alt="Иконка"></div>
                                 <div class="first-section__list_text">67 специалистов</div>
                             </li>
                             <li class="first-section__list--item" data-aos="fade-down" data-aos-delay="300">
-                                <div class="first-section__list_img"><img src="assets/images/icons-img/home/first-section-3.svg" alt="Иконка"></div>
-                                <div class="first-section__list_text">15 лет кодим</div>
+                                <div class="first-section__list_img"><img src="assets/images/icons-img/home/clock.svg" alt="Иконка"></div>
+                                <div class="first-section__list_text">выработка 5600+ час/мес.</div>
                             </li>
                         </ul>
                     </div>
@@ -217,41 +230,49 @@
             </div>
         </section>
         <!-- Section Second -->
-        <section class="container-fluid section">
+        <section class="container-fluid px-0 section">
             <div class="container">
                 <h2 class="section__title" data-aos="fade-down">Аутсорсинг веб и мобильной разработки</h2>
                 <div class="row mt-5">
-                    <div class="col-lg-3 mt-4" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-down">
                         <div class="icon-block">
                             <div class="icon-block__img">
-                                <img src="assets/images/icons/wallet.svg" alt="">
+                                <svg class="svg-icon">
+                                    <use xlink:href="assets/images/icons/sprite.svg#wallet"></use>
+                                </svg>
                             </div>
                             <h3 class="icon-block__title">Экономия</h3>
                             <p class="icon-block__text">Дешевле и быстрее найма собственных специалистов с учетом всех внутренних издержек.</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 mt-4" data-aos="fade-down" data-aos-delay="100">
+                    <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-down" data-aos-delay="100">
                         <div class="icon-block">
                             <div class="icon-block__img">
-                                <img src="assets/images/icons/add-people.svg" alt="">
+                                <svg class="svg-icon">
+                                    <use xlink:href="assets/images/icons/sprite.svg#add-people"></use>
+                                </svg>
                             </div>
                             <h3 class="icon-block__title">1 + 1</h3>
                             <p class="icon-block__text">Гибкое изменение состава и численности команды под нужды вашего проекта.</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 mt-4" data-aos="fade-down" data-aos-delay="200">
+                    <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-down" data-aos-delay="200">
                         <div class="icon-block">
                             <div class="icon-block__img">
-                                <img src="assets/images/icons/no-risk.svg" alt="">
+                                <svg class="svg-icon">
+                                    <use xlink:href="assets/images/icons/sprite.svg#no-risk"></use>
+                                </svg>
                             </div>
                             <h3 class="icon-block__title">Риски = 0</h3>
                             <p class="icon-block__text">Бабушка заболела, интернет выключили и другие риски мы берем на себя.</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 mt-4" data-aos="fade-down" data-aos-delay="300">
+                    <div class="col-lg-3 col-md-6 mt-4" data-aos="fade-down" data-aos-delay="300">
                         <div class="icon-block">
                             <div class="icon-block__img">
-                                <img src="assets/images/icons/know-everything.svg" alt="">
+                                <svg class="svg-icon">
+                                    <use xlink:href="assets/images/icons/sprite.svg#like"></use>
+                                </svg>
                             </div>
                             <h3 class="icon-block__title">Пишем на всём</h3>
                             <p class="icon-block__text">У нас всегда есть специалисты с необходимым набором технологического стэка.</p>
@@ -261,16 +282,16 @@
             </div>
         </section>
         <!-- Section Third -->
-        <section class="container-fluid section section-grey techno">
+        <section class="container-fluid px-0 section section-grey techno">
             <div class="container">
                 <h2 class="section__title" data-aos="fade-down">Технологии, в которых мы эксперты</h2>
                 <div class="row mt-80 mb-80">
-                    <div class="col-lg-6" data-aos="fade-down">
+                    <div class="col-lg-6 mb-5 order-1 d-flex align-items-center" data-aos="fade-down">
                         <div class="techno__img">
-                            <img src="assets/images/img/home/tech1.svg" alt="Изображения">
+                            <img src="assets/images/icons/1.svg" alt="Изображения">
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 order-2">
                         <h3 class="techno__title" data-aos="fade-down">Backend-разработка</h3>
                         <div class="row">
                             <div class="col-lg-6 mb-5" data-aos="fade-down">
@@ -290,7 +311,7 @@
                     </div>
                 </div>
                 <div class="row mt-80 mb-80">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 order-2 order-lg-1">
                         <h3 class="techno__title" data-aos="fade-down">Frontend-разработка</h3>
                         <div class="row">
                             <div class="col-lg-6 mb-5" data-aos="fade-down">
@@ -308,16 +329,16 @@
                         </div>
                         <p class="techno__text" data-aos="fade-down">HTML5, CSS3, LESS, SASS, SCSS, Pug (Jade), JS (ES5, ES6, ESNext), TypeScript, Material, Bootstrap, Webpack, Gulp, Docker, Angular, Angular CLI, React, Redux, Saga, Thunk, MobX, antd, Next.js, Vue.js, Vue Cli 3, Vuetify, Bootstrap-Vue, Nuxt.js, NodeJS, Express, Socket.IO, GraphQL, Apollo, Relay, Protractor, Jest, Puppeteer</p>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-down">
+                    <div class="col-lg-6 order-1 order-lg-2 mb-5 d-flex align-items-center" data-aos="fade-down">
                         <div class="techno__img">
-                            <img src="assets/images/img/home/tech2.svg" alt="Изображения">
+                            <img src="assets/images/icons/2.svg" alt="Изображения">
                         </div>
                     </div>
                 </div>
                 <div class="row mt-80 mb-80">
-                    <div class="col-lg-6" data-aos="fade-down">
+                    <div class="col-lg-6 mb-5 d-flex align-items-center" data-aos="fade-down">
                         <div class="techno__img">
-                            <img src="assets/images/img/home/tech3.svg" alt="Изображения">
+                            <img src="assets/images/icons/3.svg" alt="Изображения">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -340,7 +361,7 @@
                     </div>
                 </div>
                 <div class="row mt-80 mb-80">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 order-2 order-lg-1">
                         <h3 class="techno__title" data-aos="fade-down">QA и тестирование</h3>
                         <div class="row">
                             <div class="col-lg-6 mb-5" data-aos="fade-down">
@@ -358,42 +379,42 @@
                         </div>
                         <p class="techno__text" data-aos="fade-down">Dart, Flutter, Xcode, AppCode, Swift, RxSwift, RxCocoa, Objective-C, React Native, Cocoa Typhoon, Realm, CoreData, GCD, Apple Pay, Kotlin, Java, Android SDK, SOLID, Clean Architecture, Retrofit 2, Git, Android Studio, Firebase Coroutine, DI (Dagger 2), Google Pay</p>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-down">
+                    <div class="col-lg-6 mb-5 order-1 order-lg-2 d-flex align-items-center" data-aos="fade-down">
                         <div class="techno__img">
-                            <img src="assets/images/img/home/tech4.svg" alt="Изображения">
+                            <img src="assets/images/icons/4.svg" alt="Изображения">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Section Fourth -->
-        <section class="container-fluid section">
+        <section class="container-fluid px-0 section">
             <h2 class="section__title" data-aos="fade-down">С 2004 года мы накопили отраслевую экспертизу</h2>
             <p class="mt-5 text-center" data-aos="fade-down">Банки и страхование • Пенсионные фонды • Форекс и биржи • Телекоммуникации • Искусственный интеллект • Недвижимость • Нефтегазовый сектор</p>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
                 </div>
@@ -404,26 +425,32 @@
             <div class="container">
                 <h2 class="section__title" data-aos="fade-down">Мы нужны, если</h2>
                 <div class="row mt-5">
-                    <div class="col-lg-4" data-aos="fade-down">
+                    <div class="col-lg-4 mb-5" data-aos="fade-down">
                         <div class="icon-block icon-block--centered">
                             <div class="icon-block__img">
-                                <img src="assets/images/icons-img/home/second-1.svg" alt="">
+                                <svg class="svg-icon">
+                                    <use xlink:href="assets/images/icons/sprite.svg#group-add"></use>
+                                </svg>
                             </div>
                             <p class="icon-block__text">У вас есть своя команда разработки, но требуются дополнительные руки.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4" data-aos="fade-down">
+                    <div class="col-lg-4 mb-5" data-aos="fade-down">
                         <div class="icon-block icon-block--centered">
                             <div class="icon-block__img">
-                                <img src="assets/images/icons-img/home/second-2.svg" alt="">
+                                <svg class="svg-icon">
+                                    <use xlink:href="assets/images/icons/sprite.svg#startup"></use>
+                                </svg>
                             </div>
                             <p class="icon-block__text">У вас новый проект и своих разработчиков или нет, или они заняты другими задачами.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4" data-aos="fade-down">
+                    <div class="col-lg-4 mb-5" data-aos="fade-down">
                         <div class="icon-block icon-block--centered">
                             <div class="icon-block__img">
-                                <img src="assets/images/icons-img/home/second-3.svg" alt="">
+                                <svg class="svg-icon">
+                                    <use xlink:href="assets/images/icons/sprite.svg#support"></use>
+                                </svg>
                             </div>
                             <p class="icon-block__text">Требуется поддержка и развитие текущих наработок.</p>
                         </div>
@@ -432,44 +459,44 @@
             </div>
         </section>
         <!-- Section Fourth -->
-        <section class="container-fluid section">
+        <section class="container-fluid px-0 section">
             <h2 class="section__title" data-aos="fade-down">Награды и рейтинги</h2>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
-                    <div class="col-lg-3 mb-5" data-aos="fade-down">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4 mb-md-5" data-aos="fade-down">
                         <img src="assets/images/brands/1.png" alt="Изображения">
                     </div>
                 </div>
             </div>
         </section>
         <!-- Form Section -->
-        <section class="container-fluid section section-grey form-section">
+        <section class="container-fluid px-0 section section-grey form-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 mb-5">
                         <form action="#" method="POST" class="form-section__block">
-                            <h2 data-aos="fade-down">Связаться с нами</h2>
+                            <h2 class="section__title section__title--left" data-aos="fade-down">Связаться с нами</h2>
                             <div class="form-section__block--input">
                                 <div class="input-block mb-4" data-aos="fade-down">
                                     <label for="form-name">Как вас зовут?</label>
@@ -493,6 +520,9 @@
                                 <div class="upload-file__wrapper">
                                     <input type="file" name="files[]" id="upload-file__input_1" class="upload-file__input" accept=".jpg, .jpeg, .png, .gif, .bmp, .doc, .docx, .xls, .xlsx, .txt, .tar, .zip, .7z, .7zip" multiple>
                                     <label class="upload-file__label btn btn-blue btn-file" for="upload-file__input_1">
+                                        <svg class="svg-white">
+                                            <use xlink:href="assets/images/icons/sprite.svg#file"></use>
+                                        </svg>
                                         <span class="upload-file__text">Прикрепить файл</span>
                                     </label>
                                 </div>
@@ -515,19 +545,17 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer__logo" data-aos="fade-down">
                         Логотип
                     </div>
                     <ul class="footer__social" data-aos="fade-down">
-                        <li>
-                            <a href="#">Иконка</a>
-                        </li>
+                        <li><a href="#">Тут будут соц-сети</a></li>
                     </ul>
                     <div class="footer__copyright" data-aos="fade-down">© 2020 – Zi1 ∞</div>
                     <div class="footer__policy" data-aos="fade-down"><a href="#">Политика конфиденциальности</a></div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer__title" data-aos="fade-down">О компании</div>
                     <ul class="footer__links" data-aos="fade-down">
                         <li><a href="#">Наш блог</a></li>
@@ -537,7 +565,7 @@
                         <li><a href="#">Контакты</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer__title" data-aos="fade-down">Аутсорсинг</div>
                     <ul class="footer__links" data-aos="fade-down">
                         <li><a href="#">Backend PHP разработка</a></li>
@@ -547,7 +575,7 @@
                         <li><a href="#">QA и тестирование</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="footer__title" data-aos="fade-down">Услуги</div>
                     <ul class="footer__links" data-aos="fade-down">
                         <li><a href="#">Удаленный офис разработки</a></li>

@@ -22,6 +22,13 @@ $(document).ready(function () {
   });
 });
 
+$(".js-menu-open").click(function () {
+  $(".js-menu").toggleClass("menu-opened");
+  $("body").toggleClass("lock");
+  $(".hamburger_menu").toggleClass("hamburger_menu_active");
+});
+
+
 $(function () {
   AOS.init({
     once: true,
@@ -32,17 +39,12 @@ $(function () {
   onElementHeightChange(document.body, function () {
     AOS.refresh();
   });
-
-  /* if (document.readyState == "complete") {
-     AOS.refresh();
-   } */
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const forms = document.querySelectorAll("form");
   const inputFile = document.querySelectorAll(".upload-file__input");
 
-  /////////// Кнопка «Прикрепить файл» ///////////
   inputFile.forEach(function (el) {
     let textSelector = document.querySelector(".upload-file__text");
     let fileList;

@@ -1,18 +1,18 @@
 <header class="header container-fluid">
     <div class="row" data-aos="zoom-out-down">
-        <div class="col-lg-3 d-flex align-items-center">
+        <div class="col-xl-2 col-lg-8 col-8 d-flex align-items-center">
             <div class="header__logo">
                 <a href="#">
                     Логотип
                 </a>
             </div>
         </div>
-        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+        <div class="col-lg-8 header__menu_block d-xl-flex justify-content-center align-items-center">
             <div class="header__menu">
                 <nav>
                     <ul class="header__menu_list">
                         <li class="header__menu_list--item">
-                            <a href="#">О нас</a>
+                            <button>О нас</button>
                             <ul class="header__menu_dropdown">
                                 <li>
                                     <a href="#">Ссылка</a>
@@ -38,7 +38,7 @@
                             </ul>
                         </li>
                         <li class="header__menu_list--item">
-                            <a href="#">Услуги</a>
+                            <button>Услуги</button>
                             <ul class="header__menu_dropdown">
                                 <li>
                                     <a href="#">Ссылка</a>
@@ -64,7 +64,7 @@
                             </ul>
                         </li>
                         <li class="header__menu_list--item">
-                            <a href="#">Аутсорсинг разработки</a>
+                            <button>Аутсорсинг разработки</button>
                             <ul class="header__menu_dropdown">
                                 <li>
                                     <a href="#">Ссылка</a>
@@ -93,7 +93,7 @@
                             <a href="#">Портфолио</a>
                         </li>
                         <li class="header__menu_list--item">
-                            <a href="#">Карьера</a>
+                            <button>Карьера</button>
                             <ul class="header__menu_dropdown">
                                 <li>
                                     <a href="#">Ссылка</a>
@@ -128,10 +128,23 @@
                 </nav>
             </div>
         </div>
-        <div class="col-lg-3 d-flex align-items-center justify-content-end">
+        <div class="col-lg-2 d-none d-xl-flex align-items-center justify-content-end">
             <div class="header__contact">
                 <a href="#">+7 123 123 12 12</a>
             </div>
         </div>
+        <div class="col-lg-4 col-4 d-flex d-xl-none align-items-center justify-content-end">
+            <div class="header__burger" data-aos="fade-up">
+                <button class="js-menu-open d-flex">
+                    <div class="hamburger_menu">
+                        <div class="hamburger_menu_line hamburger_menu_line_top"></div>
+                        <div class="hamburger_menu_line hamburger_menu_line_bottom"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
     </div>
+    <!-- <nav class="header-mobile">
+
+    </nav> -->
 </header>
