@@ -6214,10 +6214,20 @@ $(document).ready(function () {
   });
 });
 
-AOS.init({
-  once: true,
-  anchorPlacement: "bottom-bottom",
-  duration: 800,
+$(function () {
+  AOS.init({
+    once: true,
+    anchorPlacement: "bottom-bottom",
+    duration: 800,
+  });
+
+  onElementHeightChange(document.body, function () {
+    AOS.refresh();
+  });
+
+  /* if (document.readyState == "complete") {
+     AOS.refresh();
+   } */
 });
 
 document.addEventListener("DOMContentLoaded", () => {
