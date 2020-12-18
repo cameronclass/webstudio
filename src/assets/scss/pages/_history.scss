@@ -1,0 +1,58 @@
+.history{
+    &__nav{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            li{
+                margin: 15px 25px;
+
+                a{
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+
+    &__year{
+        font-size: 30px;
+        font-weight: bold;
+        position: sticky;
+        top: 150px;
+        margin-bottom: 40px;
+    }
+
+    &__title{
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    &__img{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 25px;
+        border: 3px solid $grey;
+        box-shadow: 0px 10px 30px 0 #892cdc24;
+
+        img{
+            border-radius: 15px;
+        }
+
+
+        @include mobile{
+            padding: 20px;
+            border-width: 2px;
+        }
+    }
+
+    p{
+        line-height: 1.6;
+        font-size: 18px;
+    }
+
+
+}

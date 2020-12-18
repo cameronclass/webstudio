@@ -119,6 +119,10 @@ button {
         }
     }
 
+    &__text{
+        font-size: 20px;
+    }
+
     &-grey {
         background-color: $light-grey;
     }
@@ -160,6 +164,7 @@ button {
 
 .map {
     width: 100%;
+    min-height: 500px;
     height: 100%;
 
     @include netbook {
