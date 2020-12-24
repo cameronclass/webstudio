@@ -173,6 +173,28 @@ button {
             display: block;
         }
     }
+
+    &--small{
+        .icon-block__title{
+            font-size: 26px;
+        }
+        .icon-block__img {
+            svg {
+                width: 90px;
+                height: 90px;
+            }
+            img{
+                height: 90px;
+                object-fit: contain;
+            }
+        }
+
+        .icon-block__text {
+            font-size: 18px;
+            width: 100%;
+            display: block;
+        }
+    }
 }
 
 .line-block {
