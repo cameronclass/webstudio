@@ -330,6 +330,12 @@ button {
         font-size: 25px; } }
     .section__title--left {
       text-align: left; }
+  .section__subtitle {
+    font-size: 24px;
+    font-weight: normal; }
+    @media screen and (max-width: 576px) {
+      .section__subtitle {
+        font-size: 16px; } }
   .section__text {
     font-size: 20px; }
   .section-grey {
@@ -350,35 +356,39 @@ button {
   .icon-block--centered .icon-block__img svg {
     width: 120px;
     height: 120px; }
+  .icon-block--centered .icon-block__img img {
+    height: 120px;
+    object-fit: contain; }
 
 .icon-block--centered .icon-block__text {
   font-size: 20px;
   text-align: center;
   width: 100%;
-  padding: 0 20px; }
+  padding: 0 20px;
+  display: block; }
 
-.line-block {
-  padding: 30px; }
-  .line-block__title {
-    font-size: 24px;
-    padding-bottom: 20px;
-    position: relative; }
-    .line-block__title::after {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 90%;
-      height: 3px;
-      background-color: #892cdc; }
-  .line-block--blue {
-    background-color: #892cdc;
-    height: 100%; }
-    .line-block--blue * {
-      color: white; }
-    .line-block--blue .line-block__title:after {
-      background-color: #ffffff70; }
+.line-block__title {
+  font-size: 24px;
+  padding-bottom: 20px;
+  position: relative; }
+  .line-block__title::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 90%;
+    height: 3px;
+    background-color: #892cdc; }
+
+.line-block--blue {
+  padding: 30px;
+  background-color: #892cdc;
+  height: 100%; }
+  .line-block--blue * {
+    color: white; }
+  .line-block--blue .line-block__title:after {
+    background-color: #ffffff70; }
 
 .map {
   width: 100%;
@@ -657,6 +667,9 @@ button {
 .form-section--bordered .form-section__block {
   border: 3px solid #892cdc;
   padding: 60px; }
+  @media screen and (max-width: 576px) {
+    .form-section--bordered .form-section__block {
+      padding: 30px 20px; } }
 
 .form-section--bordered .section__title {
   text-align: center;

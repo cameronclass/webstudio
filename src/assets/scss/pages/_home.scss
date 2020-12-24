@@ -148,6 +148,9 @@
         .form-section__block {
             border: 3px solid $blue;
             padding: 60px;
+            @include mobile{
+                padding: 30px 20px;
+            }
         }
 
         .section__title{
