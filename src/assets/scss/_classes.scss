@@ -16,6 +16,12 @@
 .text-center {
     text-align: center;
 }
+.line-gradient {
+    width: 100%;
+    height: 2px;
+    background: rgb(0, 9, 79);
+    background: linear-gradient(90deg, #95a0f7 0%, rgba(39, 59, 181, 1) 50%, #95a0f7 100%);
+}
 .mt-50 {
     margin-top: 50px;
 }
@@ -25,6 +31,10 @@
 .mb-80 {
     margin-bottom: 80px;
 }
+.w-120 {
+    width: 120px;
+    height: 120px;
+}
 .w-150 {
     width: 150px;
     height: 150px;
@@ -32,6 +42,28 @@
 .w-300 {
     width: 300px;
     height: 300px;
+}
+
+.list-icon {
+    display: flex;
+    align-items: center;
+
+    svg {
+        min-width: 30px;
+        width: 30px;
+        min-height: 30px;
+        height: 30px;
+        margin-right: 15px;
+    }
+
+    span{
+        font-size: 20px;
+        font-weight: 500;
+
+        @include mobile{
+            font-size: 16px;
+        }
+    }
 }
 
 .w-sm-200 {

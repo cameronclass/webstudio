@@ -127,12 +127,24 @@ button {
         }
     }
 
+    &__posttitle{
+        font-size: 28px;
+        font-weight: bold;
+        @include mobile{
+            font-size: 20px;
+        }
+    }
+
     &__text {
         font-size: 20px;
     }
 
     &-grey {
         background-color: $light-grey;
+    }
+    &-black {
+        background-color: #16161a;
+        color: white;
     }
 }
 
@@ -163,6 +175,10 @@ button {
                 height: 120px;
                 object-fit: contain;
             }
+        }
+
+        .icon-block__title{
+            text-align: center;
         }
 
         .icon-block__text {
@@ -245,4 +261,39 @@ button {
 
 .svg-icon {
     fill: $blue;
+}
+
+.reviews{
+    &__card{
+        width: 100%;
+        max-width: 500px;
+        &_img{
+            img{
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+        }
+        &_text{
+            margin-top: 40px;
+            font-size: 20px;
+            text-align: center;
+        }
+        &_person{
+            margin-top: 50px;
+            &_name{
+                font-size: 22px;
+                font-weight: bold;
+            }
+            &_status{
+                font-size: 16px;
+            }
+        }
+    }
+
+    .swiper-slide{
+        background-color: transparent;
+    }
 }
