@@ -162,6 +162,41 @@ button {
     }
 }
 
+.line-block{
+    padding: 30px;
+    &__title{
+        font-size: 24px;
+        padding-bottom: 20px;
+        position: relative;
+
+        &::after{
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 90%;
+            height: 3px;
+            background-color: $blue;
+        }
+    }
+    &__text{}
+
+    &--blue{
+        background-color: $blue;
+        height: 100%;
+        *{
+            color: white;
+        }
+
+        .line-block__title{
+            &:after{
+                background-color: #ffffff70;
+            }
+        }
+    }
+}
+
 .map {
     width: 100%;
     min-height: 500px;
