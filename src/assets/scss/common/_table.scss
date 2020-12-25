@@ -1,0 +1,83 @@
+.table-block {
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__scroll {
+        overflow: hidden;
+        width: 100%;
+        min-width: 800px;
+    }
+}
+
+.table {
+    width: 100%;
+    background-color: white;
+
+    thead {
+        th {
+            border: none;
+            span{
+                @include mobile{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    tbody {
+        border-collapse: collapse;
+        th {
+            border-left: none;
+            color: $blue;
+            @include mobile{
+                font-size: 14px;
+            }
+        }
+        td {
+            font-size: 14px;
+            vertical-align: top;
+            &:last-child {
+                border-right: none;
+            }
+
+            @include mobile{
+                font-size: 12px;
+            }
+        }
+    }
+
+    th,
+    td {
+        padding: 30px;
+        border: 1px solid $blue;
+
+        @include mobile{
+            padding: 15px;
+        }
+    }
+
+    &__title {
+        display: block;
+        text-align: center;
+        color: $blue;
+        font-weight: 500;
+        font-size: 22px;
+        margin-bottom: 15px;
+
+        @include mobile{
+            font-size: 16px !important;
+        }
+    }
+
+    &__td-title {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 18px;
+    }
+}

@@ -177,6 +177,14 @@
     font-size: 16px;
     font-weight: 500;
     padding: 12px 50px; }
+  .btn-ex-small {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 30px; }
+    @media screen and (max-width: 576px) {
+      .btn-ex-small {
+        font-size: 13px;
+        padding: 8px 15px; } }
 
 .input-block {
   display: flex;
@@ -519,6 +527,9 @@ button {
     width: 200px;
     height: 200px; } }
 
+.bg-white {
+  background-color: #fff; }
+
 /* Sections for all pages */
 .header {
   background-color: transparent;
@@ -796,6 +807,65 @@ button {
   font-size: 18px; }
 
 /* Sliders */
+.table-block {
+  overflow-x: scroll; }
+  .table-block::-webkit-scrollbar {
+    display: none; }
+  .table-block__scroll {
+    overflow: hidden;
+    width: 100%;
+    min-width: 800px; }
+
+.table {
+  width: 100%;
+  background-color: white; }
+  .table thead th {
+    border: none; }
+    @media screen and (max-width: 576px) {
+      .table thead th span {
+        font-size: 12px; } }
+  .table tbody {
+    border-collapse: collapse; }
+    .table tbody th {
+      border-left: none;
+      color: #892cdc; }
+      @media screen and (max-width: 576px) {
+        .table tbody th {
+          font-size: 14px; } }
+    .table tbody td {
+      font-size: 14px;
+      vertical-align: top; }
+      .table tbody td:last-child {
+        border-right: none; }
+      @media screen and (max-width: 576px) {
+        .table tbody td {
+          font-size: 12px; } }
+  .table th,
+  .table td {
+    padding: 30px;
+    border: 1px solid #892cdc; }
+    @media screen and (max-width: 576px) {
+      .table th,
+      .table td {
+        padding: 15px; } }
+  .table__title {
+    display: block;
+    text-align: center;
+    color: #892cdc;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 15px; }
+    @media screen and (max-width: 576px) {
+      .table__title {
+        font-size: 16px !important; } }
+  .table__td-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 15px; }
+  .table ul {
+    list-style: disc;
+    padding-left: 18px; }
+
 /* Aos */
 [data-aos][data-aos][data-aos-duration="50"],
 body[data-aos-duration="50"] [data-aos] {

@@ -34,4 +34,15 @@
         font-weight: 500;
         padding: 12px 50px;
     }
+
+    &-ex-small{
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px 30px;
+
+        @include mobile{
+            font-size: 13px;
+            padding: 8px 15px;
+        }
+    }
 }
