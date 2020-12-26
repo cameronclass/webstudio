@@ -43,6 +43,7 @@ const path = {
       "assets/images/**/*.{jpg,png,gif,ico,webp,webmanifest,xml,json}",
     svg: srcPath + "assets/images/**/**/*.svg",
     fonts: srcPath + "/assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+    txt: srcPath + "*.txt",
   },
   watch: {
     html: srcPath + "**/*.html",
@@ -53,6 +54,7 @@ const path = {
       "assets/images/**/**/*.{jpg,png,gif,ico,webp,webmanifest,xml,json}",
     svg: srcPath + "assets/images/**/**/*.svg",
     fonts: srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+    txt: srcPath + "*.txt",
   },
   clean: "./" + distPath,
 };
@@ -231,6 +233,14 @@ function svg(cb) {
   cb();
 }
 
+function txt(cb) {
+  return src(path.src.txt)
+    .pipe(dest(path.build.html))
+    .pipe(browserSync.stream());
+
+  cb();
+}
+
 function fonts(cb) {
   src(path.src.fonts).pipe(ttf2woff()).pipe(dest(path.build.fonts));
   return src(path.src.fonts)
@@ -254,9 +264,10 @@ function watchFiles() {
   gulp.watch([path.watch.images], images);
   gulp.watch([path.watch.fonts], fonts);
   gulp.watch([path.watch.svg], svg);
+  gulp.watch([path.watch.txt], txt);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts, svg));
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts, svg, txt));
 const watch = gulp.parallel(build, watchFiles, serve);
 
 /* Exports Tasks */
@@ -265,6 +276,7 @@ exports.css = css;
 exports.js = js;
 exports.images = images;
 exports.svg = svg;
+exports.txt = txt;
 exports.fonts = fonts;
 exports.clean = clean;
 exports.build = build;
