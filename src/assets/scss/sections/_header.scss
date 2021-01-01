@@ -96,6 +96,19 @@
                     }
                 }
             }
+
+            &--section{
+                display: flex;
+                width: 600px;
+
+                > li{
+                    width: 50%;
+                }
+                
+                > li:nth-child(2){
+                    margin-left: 50px;
+                }
+            }
         }
     }
 

@@ -12,11 +12,25 @@
         padding: 14px 40px;
     }
 
+    &-radius{
+        border-radius: 4px;
+    }
+
     &-blue{
         color: white;
         background-color: $blue;
 
         &:hover{
+            background-color: darken($blue, 15);
+        }
+    }
+
+    &-grey{
+        color: white;
+        background-color: #232323;
+
+        &:hover{
+            color: white;
             background-color: darken($blue, 15);
         }
     }
