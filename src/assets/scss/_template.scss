@@ -119,18 +119,18 @@ button {
         }
     }
 
-    &__subtitle{
+    &__subtitle {
         font-size: 24px;
         font-weight: normal;
-        @include mobile{
+        @include mobile {
             font-size: 16px;
         }
     }
 
-    &__posttitle{
+    &__posttitle {
         font-size: 28px;
         font-weight: bold;
-        @include mobile{
+        @include mobile {
             font-size: 20px;
         }
     }
@@ -159,6 +159,10 @@ button {
     &__title {
     }
 
+    h4{
+        font-size: 20px;
+    }
+
     &__text {
         width: 90%;
     }
@@ -171,13 +175,13 @@ button {
                 width: 120px;
                 height: 120px;
             }
-            img{
+            img {
                 height: 120px;
                 object-fit: contain;
             }
         }
 
-        .icon-block__title{
+        .icon-block__title {
             text-align: center;
         }
 
@@ -190,8 +194,8 @@ button {
         }
     }
 
-    &--small{
-        .icon-block__title{
+    &--small {
+        .icon-block__title {
             font-size: 26px;
         }
         .icon-block__img {
@@ -199,7 +203,7 @@ button {
                 width: 90px;
                 height: 90px;
             }
-            img{
+            img {
                 height: 90px;
                 object-fit: contain;
             }
@@ -263,12 +267,12 @@ button {
     fill: $blue;
 }
 
-.reviews{
-    &__card{
+.reviews {
+    &__card {
         width: 100%;
         max-width: 500px;
-        &_img{
-            img{
+        &_img {
+            img {
                 width: 120px;
                 height: 120px;
                 object-fit: cover;
@@ -276,24 +280,24 @@ button {
                 overflow: hidden;
             }
         }
-        &_text{
+        &_text {
             margin-top: 40px;
             font-size: 20px;
             text-align: center;
         }
-        &_person{
+        &_person {
             margin-top: 50px;
-            &_name{
+            &_name {
                 font-size: 22px;
                 font-weight: bold;
             }
-            &_status{
+            &_status {
                 font-size: 16px;
             }
         }
     }
 
-    .swiper-slide{
+    .swiper-slide {
         background-color: transparent;
     }
 }
