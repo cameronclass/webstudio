@@ -69,7 +69,7 @@
 }
 
 .accordion__item {
-    background:  white;
+    background: white;
     border-radius: 4px;
 }
 .accordion__item:not(:last-child) {
@@ -88,6 +88,7 @@
         font-size: 16px;
     }
 }
+
 .accordion__header::after {
     content: "";
     display: block;
@@ -104,6 +105,9 @@
     background-size: 45% 50%;
     background-color: white;
     transition: all 0.4s ease;
+}
+.accordion__item--not-line .accordion__header::after {
+    display: none;
 }
 .accordion__body {
     padding: 0 40px 20px 20px;

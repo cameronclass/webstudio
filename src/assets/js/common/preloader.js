@@ -22,9 +22,15 @@ $(document).ready(function () {
   });
 
   $(".js-menu-open").click(function () {
-    $(".js-menu").toggleClass("menu-opened");
+    $(this).addClass("js-menu-opened");
+    $(".header").addClass("header__active");
     $("body").toggleClass("lock");
     $(".hamburger_menu").toggleClass("hamburger_menu_active");
+    $(".header-mobile").toggleClass("header-mobile-opened");
+  });
+  $(".js-menu-opened").click(function () {
+    $(this).removeClass("js-menu-opened");
+    $(".header").removeClass("header__active");
   });
 
   $(".accordion__header").click(function () {

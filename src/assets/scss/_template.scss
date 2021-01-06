@@ -321,6 +321,9 @@ button {
     &__text {
         font-size: 20px;
         margin-bottom: 30px;
+        @include mobile{
+            font-size: 16px;
+        }
     }
 
     &__phone{
@@ -329,6 +332,10 @@ button {
         font-weight: bold;
         color: white;
         text-align: center;
+
+        @include mobile{
+            font-size: 18px;
+        }
     }
 
     &__mail{
@@ -338,6 +345,9 @@ button {
         color: white;
         text-align: center;
         text-decoration: underline;
+        @include mobile{
+            font-size: 16px;
+        }
     }
 
     &__social{
