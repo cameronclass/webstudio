@@ -43,6 +43,16 @@ $(document).ready(function () {
     $(this).closest(".accordion__item").toggleClass("open-accordion");
   });
 
+  $(".first-section .btn").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: $(".form-section").offset().top,
+      },
+      2000
+    );
+  });
+
+
   AOS.init({
     once: true,
     anchorPlacement: "bottom-bottom",
