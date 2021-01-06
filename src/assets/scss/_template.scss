@@ -159,7 +159,7 @@ button {
     &__title {
     }
 
-    h4{
+    h4 {
         font-size: 20px;
     }
 
@@ -191,6 +191,14 @@ button {
             width: 100%;
             padding: 0 20px;
             display: block;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+            li {
+                font-size: 17px;
+            }
         }
     }
 
@@ -299,5 +307,52 @@ button {
 
     .swiper-slide {
         background-color: transparent;
+    }
+}
+
+.contact-block {
+    width: 100%;
+    max-width: 500px;
+    background-color: darken($color: $blue, $amount: 5);
+    color: white;
+    padding: 65px 35px;
+    text-align: center;
+
+    &__text {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    &__phone{
+        display: block;
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+
+    &__mail{
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    &__social{
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+
+        a{
+            margin: 0 15px;
+        }
+
+        svg{
+            fill: white;
+            width: 30px;
+            height: 30px;
+        }
     }
 }

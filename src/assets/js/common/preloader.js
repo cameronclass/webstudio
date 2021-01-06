@@ -27,6 +27,16 @@ $(document).ready(function () {
     $(".hamburger_menu").toggleClass("hamburger_menu_active");
   });
 
+  $(".accordion__header").click(function () {
+    $(".accordion__body").not($(this).next()).slideUp(400);
+    $(this).next().slideToggle(400);
+
+    $(".accordion__item")
+      .not($(this).closest(".accordion__item"))
+      .removeClass("open-accordion");
+    $(this).closest(".accordion__item").toggleClass("open-accordion");
+  });
+
   AOS.init({
     once: true,
     anchorPlacement: "bottom-bottom",
@@ -135,7 +145,6 @@ window.onload = function () {
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
   document.body.appendChild(css);
 };
-
 
 var galleryThumbs = new Swiper(".office .gallery-thumbs", {
   spaceBetween: 10,

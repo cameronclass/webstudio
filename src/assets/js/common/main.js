@@ -7,3 +7,4 @@ $(window).scroll(function() {
         $(".header").removeClass(".header__active");
     }
 };
+
