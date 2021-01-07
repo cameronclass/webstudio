@@ -935,6 +935,9 @@ button {
   text-align: center;
   margin-bottom: 40px; }
 
+.brands img {
+  filter: grayscale(1); }
+
 .history__nav {
   display: flex;
   justify-content: center;

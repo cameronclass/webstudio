@@ -79,11 +79,10 @@
         margin-top: 40px;
     }
 
-
-    &--title{
+    &--title {
         height: auto;
 
-        .first-section__title{
+        .first-section__title {
             margin-top: 50px;
             text-align: center;
             width: 100%;
@@ -148,14 +147,20 @@
         .form-section__block {
             border: 3px solid $blue;
             padding: 60px;
-            @include mobile{
+            @include mobile {
                 padding: 30px 20px;
             }
         }
 
-        .section__title{
+        .section__title {
             text-align: center;
             margin-bottom: 40px;
         }
+    }
+}
+
+.brands {
+    img {
+        filter: grayscale(1);
     }
 }
