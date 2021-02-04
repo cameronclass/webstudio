@@ -5,6 +5,10 @@ _site
 .sass-cache/
 .jekyll-metadata
 vendor
+.idea
+.idea/*
+.idea/.*
+composer.lock
 
 
 ### NPM ###

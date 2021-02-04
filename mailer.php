@@ -3,7 +3,7 @@
 define('DOCROOT', __DIR__ . DIRECTORY_SEPARATOR);
 
 require DOCROOT . '../vendor/autoload.php';
-const ALLOWED_EXTENSION = ["jpeg", "jpg", "png", "docx", "doc", "xlsx", "pdf"];
+const ALLOWED_EXTENSION = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'tar', 'zip', '7z', '7zip'];
 // 5mb
 const MAX_FILE_SIZE = 1048576 * 5;
 
