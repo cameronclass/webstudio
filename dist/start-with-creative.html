@@ -569,30 +569,30 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 mb-5">
-                        <form action="#" method="POST" class="form-section__block">
+                        <form action="/mailer.php" method="POST" class="form-section__block" id="form-result-mail" enctype="multipart/form-data">
                             <h2 class="section__title section__title--left" data-aos="fade-down">Связаться с нами</h2>
                             <div class="form-section__block--input">
                                 <div class="input-block mb-4" data-aos="fade-down">
                                     <label for="form-name">Как вас зовут?</label>
-                                    <input type="text" id="form-name" class="input">
+                                    <input type="text" id="form-name" name="name" class="input">
                                 </div>
                                 <div class="input-block mb-4" data-aos="fade-down">
                                     <label for="form-email">E-mail</label>
-                                    <input type="email" id="form-email" class="input">
+                                    <input type="email" id="form-email" name="email" class="input">
                                 </div>
 
                                 <div class="input-block mb-4" data-aos="fade-down">
                                     <label for="form-tel">Телефон</label>
-                                    <input type="tel" id="form-tel" class="input">
+                                    <input type="tel" name="phone" id="form-tel" class="input">
                                 </div>
                                 <div class="input-block mb-4" data-aos="fade-down">
                                     <label for="form-text">Расскажите о своем проекте</label>
-                                    <textarea name="" id="form-text" class="input"></textarea>
+                                    <textarea name="content" id="form-text" class="input"></textarea>
                                 </div>
                             </div>
                             <div class="form-section__block--file" data-aos="fade-down">
                                 <div class="upload-file__wrapper">
-                                    <input type="file" name="files[]" id="upload-file__input_1" class="upload-file__input" accept=".jpg, .jpeg, .png, .gif, .bmp, .doc, .docx, .xls, .xlsx, .txt, .tar, .zip, .7z, .7zip" multiple>
+                                    <input type="file" name="file[]" value="" id="upload-file__input_1" class="upload-file__input" multiple>
                                     <label class="upload-file__label btn btn-blue btn-file" for="upload-file__input_1">
                                         <svg class="svg-white">
                                             <use xlink:href="assets/images/icons/sprite.svg#file"></use>
@@ -601,7 +601,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-section__block--btn" data-aos="fade-down">
+                            <div class="form-section__block--btn" data-response data-aos="fade-down">
                                 <p>Нажимая кнопку, вы соглашаетесь на обработку персональных данных
                                     и соглашаетесь c <a href="#">политикой конфиденциальности.</a></p>
                                 <button class="btn btn-blue btn-small">Отправить</button>

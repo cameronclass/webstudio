@@ -4,6 +4,7 @@ _site
 *-cache/
 .sass-cache/
 .jekyll-metadata
+vendor
 
 
 ### NPM ###
