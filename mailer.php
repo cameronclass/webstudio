@@ -32,7 +32,7 @@ function removeFileFrom(string $directory, array $files)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail = new PHPMailer(true);
-    $response = ['status' => 'Your message successfully sent'];
+    $response = ['result' => 'Your message successfully sent'];
     if (isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['content']) && isset($_POST['name'])) {
         try {
             $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -64,11 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     } else {
                         removeFileFrom('uploads', $files);
-                        $response['status'] = "Your file {$temp[0]}.{$temp[1]} does not allowed max file size 5mb and extension: " . implode(',', ALLOWED_EXTENSION);
+                        $response['result'] = "Your file {$temp[0]}.{$temp[1]} does not allowed max file size 5mb and extension: " . implode(',', ALLOWED_EXTENSION);
+                        $response['status'] = false;
+
                         echo json_encode($response);
                     }
                 }
-                $response['status'] = 'Your message and files has been successfully sent';
+                $response['result'] = 'Your message and files has been successfully sent';
             }
             $mail->Body = "Имя:{$_POST['name']}<br>Email:" . '<a href="mailto:' . $_POST['email'] . '">' . $_POST['email'] . '</a><br>Телефон:' . "{$_POST['phone']}<br>Текст:{$_POST['content']}";
             $mail->AltBody = '';
@@ -76,15 +78,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!empty($files)) {
                 removeFileFrom('uploads', $files);
             }
+            $response['status'] = true;
+
             echo json_encode($response);
         } catch (Exception $e) {
-            echo json_encode(['status' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
+            echo json_encode(['result' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}", 'status'=> false]);
 
         }
     } else {
-        $response['status'] = 'Field email, name, phone, content is required';
+        $response['result'] = 'Field email, name, phone, content is required';
+        $response['status'] = false;
         echo json_encode($response);
     }
 } else {
-    echo json_encode(['status' => "Method does not allowedMethod does not allowed"]);
+    echo json_encode(['result' => "Method does not allowedMethod does not allowed", 'status'=> false]);
 }
